@@ -1,0 +1,96 @@
+public void UpdateQuality()
+{
+	for (var i = 0; i < Items.Count; i++)
+	{
+		if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+		{
+			QualityGreaterThenZero(i);
+		}
+		else
+		{
+			if (Items[i].Quality < 50)
+			{
+				Items[i].Quality = Items[i].Quality + 1;
+				QualityNameCheck(i);				
+			}
+		}
+		SellInDecrement(i);	
+		SellinLessZero(i);	
+	}
+}
+public void QualityGreaterThenZero(i){
+	if (Items[i].Quality > 0)
+		{
+			if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+				{
+					Items[i].Quality = Items[i].Quality - 1;
+				}
+		}
+}
+
+public void QualityNameCheck(i){
+	if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+		{
+			if (Items[i].SellIn < 11)
+				{
+					Qualitylessfifty(i);
+				}
+
+			if (Items[i].SellIn < 6)
+				{
+					Qualitylessfifty(i);
+				}
+		}
+}
+
+public void SellInDecrement(i){
+	if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+		{
+			Items[i].SellIn = Items[i].SellIn - 1;
+		}
+
+}
+
+public void QualitylessZero(){
+	if (Items[i].Quality > 0)
+		{
+			if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+				{
+					Items[i].Quality = Items[i].Quality - 1;
+					}
+		}
+}
+
+
+public void SellinLessZero(i){
+	if (Items[i].SellIn < 0)
+		{	if (Items[i].Name != "Aged Brie") {
+				NameCompare(i)
+			}
+			else
+			{		
+				Qualitylessfifty(i);
+			}
+		}
+} 
+
+public void NameIsNotEqual(i){
+	if (Items[i].Name != "Aged Brie")
+			{
+				if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+				{
+					QualitylessZero(i);
+				}
+				else
+				{
+					Items[i].Quality = Items[i].Quality - Items[i].Quality;
+				}
+			}
+}
+
+public void Qualitylessfifty(i){
+	if (Items[i].Quality < 50)
+		{
+			Items[i].Quality = Items[i].Quality + 1;
+		}
+}
